@@ -14,6 +14,9 @@ logoIcon = folium.features.CustomIcon('d_logo.png', icon_size=(50, 50))
 # Vega data
 vis = os.path.join('data', 'vis.json')
 
+# Geojson Data
+overlay = os.path.join('data', 'overlay.json')
+
 # Create markers
 folium.Marker([50.4494865, 30.6586025], popup='<strong>Location One</strong>',
               tooltip=tooltip).add_to(m),
@@ -39,6 +42,9 @@ folium.CircleMarker(
     fill=True,
     fill_color='#428bca'
 ).add_to(m)
+
+# Geojason overlay
+folium.GeoJson(overlay, name='Rusanivka').add_to(m)
 
 # Generate map in html
 m.save('map.html')
